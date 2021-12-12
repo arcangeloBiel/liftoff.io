@@ -1,17 +1,13 @@
 import express from 'express';
+import "reflect-metadata";
+import "./database";
+import { router } from './routes';
 
 const app = express();
+app.use(express.json())
 
-//Rota
-app.get("/test", (req, res) => {
-   return res.send("Ola NLW ")
-})
-
-app.post("/test-post", (req, res) => {
-    return res.send("Ola post NLW")
- })
+ app.use(router);
 
 //https://localhost:300
-app.listen(3000, () => {
-    console.log(" Server is running NLW")
-});
+app.listen(3000, () => { console.log(" Server is running NLW") });
+
