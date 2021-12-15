@@ -11,6 +11,9 @@ import { v4 as uuid} from "uuid";
   name: string;
 
   @Column()
+  password: string;
+
+  @Column()
   email: string;
 
   @Column()
