@@ -1,13 +1,16 @@
 import {Router } from "express";
-import { CreateTagController } from "./controllers/CreateTagcontroller";
+import { CreateTagController } from "./controllers/CreateTagController";
 import { CreateUserController } from "./controllers/CreateUserController";
+import { ensureAdmin } from "./middlewares/ensureAdmin";
 
 const router = Router();
 
 const createUserController = new CreateUserController();
-router.post("/api/users", createUserController.handle);
-
 const createTagController = new CreateTagController();
+
+
+router.post("/api/users", ensureAdmin, createUserController.handle);
+//router.use(ensureAdmin)
 router.post("/api/tags", createTagController.handle);
 
 
