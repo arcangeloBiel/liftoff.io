@@ -11,7 +11,7 @@ interface IRequest {
 
 class CreateUserService {
 
-    async execute({name, email, admin, password} : IRequest) {
+    async execute({name, email, admin = false, password} : IRequest) {
 
         const usersRepositories = getCustomRepository(UsersRepositories);
          
