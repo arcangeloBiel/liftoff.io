@@ -3,12 +3,13 @@ import "reflect-metadata";
 import "./database";
 import { router } from './routes';
 import "express-async-errors"
-
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json())
 app.use(router);
+app.use(cors());
 
 /** 
  * middleware são interceptores
